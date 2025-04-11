@@ -1,0 +1,25 @@
+.app-header {
+    background-color: #db3030;
+    padding: 1rem;
+    color: rgb(202, 38, 38);
+  }
+  
+  .nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-link {
+    margin: 0 1rem;
+    color: rgb(31, 41, 233);
+    text-decoration: none;
+  }
+  
+  .logout-button {
+    background: none;
+    border: none;
+    color: rgb(33, 199, 229);
+    cursor: pointer;
+  }
+  

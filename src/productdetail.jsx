@@ -1,38 +1,30 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-// import { useCart } from "./CartContext";
-import "./productdetail.css";
+import "./productdetail.css"; 
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data));
+      .then((data) => setProduct(data))
+      .catch((err) => console.error("Error fetching product:", err));
   }, [id]);
+  const handleAddToCart = () => {
+    console.log(`Added ${product.title} to cart!`);
+  };
 
   if (!product) return <p>Loading...</p>;
 
-  const handleAddToCart = () => {
-    addToCart(product);
-    navigate("/cart");
-  };
-
   return (
     <div className="product-detail">
-      <div className="image-container">
-        <img className="detail-image" src={product.image} alt={product.title} />
-      </div>
-      <div className="detail-info">
-        <h2>{product.title}</h2>
-        <p style={{ color: 'black' }}>{product.description}</p>
-        <h3>${product.price}</h3>
-        <button onClick={handleAddToCart}>Add to cart</button>
-      </div>
+      <h1>{product.title}</h1>
+      <img src={product.image} alt={product.title} width="200" />
+      <p>{product.description}</p>
+      <p>${product.price}</p>
+      <button onClick={handleAddToCart}>Add to Cart</button>
     </div>
   );
 };

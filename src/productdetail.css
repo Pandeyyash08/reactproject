@@ -1,18 +1,17 @@
 .product-detail {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  flex-direction: column; /* Stack for mobile */
+  gap: 2rem;
   padding: 2rem;
   background-color: #f8f8f8;
   color: black;
 }
 
-/* For larger screens: image on left, details on right */
+/* Side-by-side layout on tablets/desktops */
 @media (min-width: 768px) {
   .product-detail {
     flex-direction: row;
     align-items: flex-start;
-    justify-content: center;
   }
 }
 
@@ -32,35 +31,28 @@
 
 .detail-info {
   flex: 1;
-  padding: 0.6rem 1.2rem;
-  background-color: #007bff;
-  color: black;
+  padding: 1rem;
+  background-color: #ffffff;
+  color: #333;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-
-.detail-info p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  color: black;
-}
-
 
 .detail-info h2 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 }
 
-/* .detail-info p {
-  font-size: 1rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-} */
-
 .detail-info h3 {
   font-size: 1.2rem;
   font-weight: bold;
   margin-bottom: 1rem;
-  color: black;
+}
+
+.detail-info p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
 .detail-info button {
